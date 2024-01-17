@@ -1,0 +1,172 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: aliceblue;
+}
+
+body {
+    font-family: "sans-serif";
+    text-align: center;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-weight: 1000;
+}
+
+#head-area {
+    font-family: Manrope;
+    font-weight: 200;
+    display: flex;
+    background-color: #000;
+    position: fixed;
+    width: 100vw;
+    justify-content: flex-end;
+    z-index: 4;
+}
+
+#popmenu {
+    margin-top: 60px;
+    background-color: #000;
+    position: fixed;
+    width: 100vw;
+    justify-content: center;
+    z-index: 2;
+}
+
+.hidden { /* toggle this */
+    display: none !important;
+}
+
+#popmenu li {
+    font-size: 20px;
+}
+
+#popmenu div {
+    padding-bottom: 12px;
+    padding-top: 12px;
+}
+
+#popmenu li:hover {
+    background-color:rgb(26, 26, 26);
+}
+
+#popmenu ul {
+    margin-bottom: 30px;
+}
+
+#head-area h2, .iconbutton {
+    display: none;
+}
+
+.blockrow {
+    display: flex;
+    list-style-type: none;
+}
+
+.blockrow a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.blockrow a:visited {
+    color: inherit;
+}
+
+.smallmenu {
+    display: flex;
+    width: 55px;
+    height: 55px;
+    border-radius: 100px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    margin-right: calc(200px - 16vw);
+    cursor: pointer;
+}
+
+.smallmenu img {
+    width: 50%;
+    height: 50%;
+}
+
+.smallmenu:hover {
+    background-color:rgb(26, 26, 26);
+}
+
+.cornerpanel {
+    margin-right: 52px;
+    width: 16vw; 
+}
+
+@media screen and (min-width: 1280px) {
+
+    #head-area {
+        justify-content: flex-start;
+    }
+
+    #head-area h2 {
+        display: block;
+        font-size: larger;
+        margin: 0;
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .topbutton {
+        /* width: 260px; */
+        /* height: inherit; */
+        padding: 20px 0px; 
+        text-align: center;
+        width: 13vw;
+    }
+    
+    .topbutton:hover {
+        background-color: rgb(26, 26, 26);
+    }
+    
+    .smallmenu {
+        display: none;
+    }
+
+    .cornerpanel {
+        margin-right: 0;
+        width: 18vw; 
+    }
+
+    #popmenu {
+        display: none;
+    }
+}
+
+.cornerpanel {
+    height: inherit;
+    padding-top: 2px;
+    display: flex;
+    padding-right: 5px;
+    justify-content: flex-end;
+}
+
+
+.iconbutton {
+    display: flex;
+    width: 55px;
+    height: 55px;
+    border-radius: 100px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+
+}
+
+.iconbutton img {
+    width: 50%;
+    height: 50%;
+}
+
+.iconbutton:hover {
+    background-color:rgb(26, 26, 26);
+}
