@@ -14,6 +14,8 @@ body {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     font-weight: 1000;
+    margin: 0;
+    overflow-x: hidden; /* prevent horizontal scrolling */
 }  
 
 #head-area {
@@ -167,7 +169,6 @@ body {
     align-items: center;
     justify-content: center;
     margin-right: 5px;
-
 }
 
 .iconbutton img {
@@ -177,4 +178,24 @@ body {
 
 .iconbutton:hover {
     background-color:rgb(26, 26, 26);
+}
+
+#last-icon {
+    margin-right: 12px;
+}
+
+#background-photo {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+}
+
+#background-photo img {
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
