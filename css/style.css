@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&family=Work+Sans:wght@200&display=swap');
 
 * {
     margin: 0;
@@ -17,8 +17,7 @@ body {
 }
 
 #head-area {
-    font-family: Manrope;
-    font-weight: 200;
+    font-family: "Work Sans";
     display: flex;
     background-color: #000;
     position: fixed;
