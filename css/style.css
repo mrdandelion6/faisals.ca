@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&family=Work+Sans:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100&family=Manrope:wght@200&family=Source+Code+Pro:wght@200&family=Work+Sans:wght@200&display=swap');
 
 * {
     margin: 0;
@@ -14,12 +14,12 @@ body {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     font-weight: 1000;
-}
+}  
 
 #head-area {
-    font-family: "Work Sans";
+    font-family: "Lexend";
     display: flex;
-    background-color: #000;
+    background-color: rgba(0, 0, 0, 1);
     position: fixed;
     width: 100vw;
     justify-content: flex-end;
@@ -97,7 +97,7 @@ body {
 
 .cornerpanel {
     margin-right: 52px;
-    width: 16vw; 
+    width: 24vw; 
 }
 
 @media screen and (min-width: 1280px) {
@@ -119,7 +119,11 @@ body {
         /* height: inherit; */
         padding: 20px 0px; 
         text-align: center;
-        width: 13vw;
+        width: 12vw;
+    }
+
+    h2.firstTopbutton {
+        width: 16vw;
     }
     
     .topbutton:hover {
@@ -132,7 +136,7 @@ body {
 
     .cornerpanel {
         margin-right: 0;
-        width: 18vw; 
+        width: 24vw; 
     }
 
     #popmenu {
@@ -146,18 +150,23 @@ body {
     display: flex;
     padding-right: 5px;
     justify-content: flex-end;
+    align-items: center;
 }
 
+.cornerli {
+    display: flex;
+    align-items: center;
+}
 
 .iconbutton {
     display: flex;
-    width: 55px;
-    height: 55px;
+    width: 48px;    
+    height: 48px;
     border-radius: 100px;
     overflow: hidden;
     align-items: center;
     justify-content: center;
-    margin-right: 10px;
+    margin-right: 5px;
 
 }
 
