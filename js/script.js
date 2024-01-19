@@ -15,21 +15,21 @@ menuButtons.forEach(function(button) {
     });
 });
 
-// transitionTopBar();
+    // transitionTopBar();
 
-let fade = 1; // start with the background of the header as transparent
-function transitionTopBar() {
-    if (barTransparency == 1) {
-        fade = -1;
-    }
-    barTransparency = Math.max(0, barTransparency + 0.05 * fade);
-    headBar.style.backgroundColor = `rgba(0, 0, 0, ${barTransparency})`;
-    if (barTransparency > 0) {
-        setTimeout(transitionTopBar, 10);
-    }
+    let fade = 1; // start with the background of the header as transparent
+    function transitionTopBar() {
+        if (barTransparency == 1) {
+            fade = -1;
+        }
+        barTransparency = Math.max(0, barTransparency + 0.05 * fade);
+        headBar.style.backgroundColor = `rgba(0, 0, 0, ${barTransparency})`;
+        if (barTransparency > 0) {
+            setTimeout(transitionTopBar, 10);
+        }
 
-    else {
-        fade = 1;
+        else {
+            fade = 1;
+        }
     }
-}
 

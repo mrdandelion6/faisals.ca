@@ -5,7 +5,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: aliceblue;
+    color: black;
+    text-align: left;
 }
 
 body {
@@ -59,6 +60,7 @@ body {
 }
 
 #head-area h2, .iconbutton {
+    color: whitesmoke;
     display: none;
 }
 
@@ -181,21 +183,47 @@ body {
 }
 
 #last-icon {
-    margin-right: 12px;
+    margin-right: 2vw;
 }
 
-#background-photo {
+#background-area {
     width: 100vw;
     margin: 0;
     padding: 0;
     overflow: hidden; 
+    position: relative;
+    color: whitesmoke;
 }
 
-#background-photo img {
+#background-area img {
     width: 100%; 
     height: auto; 
     display: block; 
     margin: 0;
     padding: 0;
     border: 0;
+}
+
+h1 {
+    font-family: "Lexend";
+    font-size: 180px;
+    position: absolute;
+    z-index: 1;
+    color: inherit;
+    top: 30%;
+    left: 20%;
+}
+
+#background-area p {
+    color: inherit;
+    position: absolute;
+    z-index: 1;
+    font-size: 60px;
+    top: calc(30% - 40px);
+    left: 20%;
+}
+
+h2 {
+    margin-top: 120px;
+    margin-left: 15vw;
 }
