@@ -220,7 +220,8 @@ h1 {
     z-index: 1;
     font-size: 60px;
     top: calc(30% - 40px);
-    left: 20%;
+    left: calc(20% + 12px);
+    font-family: "Lexend";
 }
 
 h2 {
