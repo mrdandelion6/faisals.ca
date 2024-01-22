@@ -1,6 +1,0 @@
-Header:
-- Faisal Shaik
-- About
-- Skills
-- Portfolio
-- Other
