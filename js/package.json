@@ -2,7 +2,7 @@
   "name": "js",
   "version": "1.0.0",
   "description": "personal website",
-  "main": "index.js",
+  "main": "index.js",  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/mrdandelion6/faisals.ca/issues"
   },
-  "homepage": "https://github.com/mrdandelion6/faisals.ca#readme"
+  "homepage": "https://github.com/mrdandelion6/faisals.ca#readme",
+  "dependencies": {
+    "date-fns": "^3.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
 }
