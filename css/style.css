@@ -24,6 +24,7 @@ body {
     display: flex;
     background-color: rgba(0, 0, 0, 1);
     position: fixed;
+    top: 0;
     width: 100vw;
     justify-content: flex-end;
     z-index: 4;
@@ -193,6 +194,10 @@ body {
     overflow: hidden; 
     position: relative;
     color: whitesmoke;
+    position: fixed;
+    top: 0;
+    left: 0;
+    user-select: none;
 }
 
 #background-area img {
@@ -224,7 +229,30 @@ h1 {
     font-family: "Lexend";
 }
 
-h2 {
-    margin-top: 120px;
-    margin-left: 15vw;
+#rest_of_page h2 {
+    margin: 0 15vw 40px 15vw;
+    font-family: "Lexend";
+    font-size: 45px;
+}
+#rest_of_page p {
+    margin: 0 15vw 40px 15vw;
+    font-family: "Lexend";
+    font-size: 20px;
+}
+
+#rest_of_page {
+    position: relative;
+    margin-top: 1000px;
+    z-index: 3;
+    background-color: whitesmoke;
+}
+
+#temp_message {
+    position: absolute;
+    top: 20px;
+    left: -100px;
+}
+
+.section_area {
+    padding-top: 100px;
 }
