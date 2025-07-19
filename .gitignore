@@ -1,0 +1,14 @@
+# env vars
+.env
+.env.local
+.env.*.local
+*/.env
+*/.env.local
+*/.env.*.local
+
+# editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
