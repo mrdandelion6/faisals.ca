@@ -1,7 +1,7 @@
-const express = require('express');
-const serverless = require('serverless-http');
-const cors = require('cors');
-const resumeRoute = require('./routes/resume');
+import express, { Request, Response } from 'express';
+import serverless from 'serverless-http';
+import cors from 'cors';
+import resumeRoute from './routes/resume';
 
 const app = express();
 
@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(cors(corsOptions));
 app.use('/api', resumeRoute);
 
-app.get('/api/health', (_, res) => {
+app.get('/api/health', (_: Request, res: Response) => {
     res.json({ status: 'ok' });
 });
 

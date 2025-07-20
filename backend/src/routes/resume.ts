@@ -1,12 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const AWS = require('aws-sdk');
+import express, { Request, Response } from 'express';
+import AWS from 'aws-sdk';
 
+const router = express.Router();
 const s3 = new AWS.S3();
 
-router.get('/resume', async (_, res) => {
+router.get('/resume', async (_: Request, res: Response) => {
     try {
-        const params = {
+        if (!process.env.S3_BUCKET) {
+            return res.status(500).json({ error: 'S3_BUCKET not configured' });
+        }
+        const params: AWS.s3.GetObjectRequest = {
             Bucket: process.env.S3_BUCKET,
             Key: 'resume.pdf'
         };
@@ -21,4 +24,4 @@ router.get('/resume', async (_, res) => {
     }
 });
 
-module.exports = router;
+export default router;
