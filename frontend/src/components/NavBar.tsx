@@ -13,7 +13,7 @@ interface NavBarProps {
   rightButtons?: NavBarButtonProps[]
 }
 
-// internal component - not exported
+// internal component
 function NavBarButton({ children, href, onClick, className = "" }: NavBarButtonProps) {
   return (
     <a
@@ -26,30 +26,29 @@ function NavBarButton({ children, href, onClick, className = "" }: NavBarButtonP
   )
 }
 
-// Main component - exported
 export default function NavBar({ leftButtons = [], rightButtons = [] }: NavBarProps) {
   const [isOpen, setIsOpen] = useState<boolean>(false)
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
 
-          {/* Left buttons - Desktop */}
+          {/* left buttons - desktop */}
           <div className="hidden md:flex items-center space-x-8">
             {leftButtons.map((button, index) => (
               <NavBarButton key={index} {...button} />
             ))}
           </div>
 
-          {/* Right buttons - Desktop */}
+          {/* right buttons - desktop */}
           <div className="hidden md:flex items-center space-x-8">
             {rightButtons.map((button, index) => (
               <NavBarButton key={index} {...button} />
             ))}
           </div>
 
-          {/* Mobile menu button */}
+          {/* mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors duration-200"
@@ -57,20 +56,20 @@ export default function NavBar({ leftButtons = [], rightButtons = [] }: NavBarPr
             type="button"
           >
             {isOpen ? (
-              // Close icon
+              // close icon
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-                // Hamburger icon
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
+              // hamburger icon
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
 
-        {/* Mobile menu - Collapsible */}
+        {/* mobile menu - collapsible */}
         {isOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <div className="flex flex-col space-y-2">
@@ -83,12 +82,12 @@ export default function NavBar({ leftButtons = [], rightButtons = [] }: NavBarPr
                 />
               ))}
 
-              {/* Divider if both arrays have items */}
+              {/* divider if both arrays have items */}
               {leftButtons.length > 0 && rightButtons.length > 0 && (
                 <div className="border-t border-gray-200 my-2"></div>
               )}
 
-              {/* Right buttons in mobile */}
+              {/* right buttons in mobile */}
               {rightButtons.map((button, index) => (
                 <NavBarButton
                   key={`right-${index}`}
