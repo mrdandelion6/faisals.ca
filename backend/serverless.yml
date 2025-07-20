@@ -1,0 +1,23 @@
+service: resume-api
+
+provider:
+  name: aws
+  runtime: nodejs24.x
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+      Resource: "arn:aws:s3:::your-resume-bucket/*"
+
+functions:
+  api:
+    handler: handler.handler
+    environment:
+      S3_BUCKET: resume-bucket
+      ALLOWED_ORIGINS: https://faisals.ca,https://www.faisals.ca
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+          cors: true
