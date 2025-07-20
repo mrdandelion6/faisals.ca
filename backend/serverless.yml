@@ -8,11 +8,11 @@ provider:
     - Effect: Allow
       Action:
         - s3:GetObject
-      Resource: "arn:aws:s3:::your-resume-bucket/*"
+      Resource: "arn:aws:s3:::resume-bucket/*"
 
 functions:
   api:
-    handler: handler.handler
+    handler: src/handler.handler
     environment:
       S3_BUCKET: resume-bucket
       ALLOWED_ORIGINS: https://faisals.ca,https://www.faisals.ca
@@ -21,3 +21,16 @@ functions:
           path: /{proxy+}
           method: ANY
           cors: true
+
+build:
+  esbuild:
+    bundle: true
+    minify: false
+    sourcemap: true
+    exclude:
+      - aws-sdk
+    target: node24
+    define:
+      require.resolve: undefined
+    platform: node
+    concurrency: 10
