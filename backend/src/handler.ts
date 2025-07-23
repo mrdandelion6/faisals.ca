@@ -1,24 +1,33 @@
 import express, { Request, Response } from 'express';
 import serverless from 'serverless-http';
 import cors from 'cors';
-import resumeRoute from './routes/resume';
+import pdfFetchRoute from './routes/pdf';
+
+
+if (process.env.NODE_ENV === 'dev') {
+    console.log('LAMBDA STARTING - APP INITIALIZATION');
+    console.log('NODE_ENV:', process.env.NODE_ENV);
+    console.log('S3_PDF_BUCKET:', process.env.S3_PDF_BUCKET);
+}
 
 const app = express();
 
 const corsOptions = {
-    origin: process.env.NODE_ENV === 'production'
-        ? ['https://faisals.ca', 'https://www.faisals.ca']
-        : ['http://localhost:3000', 'http://localhost:5173', 'http://127.0.0.1:3000'],
+    origin: process.env.NODE_ENV === 'dev'
+        ? '*'
+        : ['https://faisals.ca', 'https://www.faisals.ca'],
     methods: ['GET'],
     credentials: false
 };
 
 app.use(express.json());
 app.use(cors(corsOptions));
-app.use('/api', resumeRoute);
+app.use('/api/pdf', pdfFetchRoute);
 
 app.get('/api/health', (_: Request, res: Response) => {
     res.json({ status: 'ok' });
 });
 
-module.exports.handler = serverless(app);
+export const handler = serverless(app, {
+    binary: ['application/pdf']
+});
