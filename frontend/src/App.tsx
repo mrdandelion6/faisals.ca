@@ -1,4 +1,16 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar, { type NavBarButtonProps } from './components/NavBar'
+import PDFViewer from './components/pages/PDFViewer';
+
+function Home() {
+  return (
+    <main className="pt-16">
+      <p className="body-text">
+        hey , how's it going. <br />
+      </p>
+    </main>
+  );
+}
 
 function App() {
   const leftButtons: NavBarButtonProps[] = [
@@ -12,16 +24,15 @@ function App() {
   ]
 
   return (
-    <>
+    <Router>
       <NavBar leftButtons={leftButtons} rightButtons={rightButtons} />
 
-      <main className="pt-16">
-        <p className="body-text">
-          hey , how's it going. <br />
-        </p>
-      </main>
-
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/ta-resume" element={<PDFViewer pdf_endpoint="ta-resume" />} />
+        <Route path="/gpu-resume" element={<PDFViewer pdf_endpoint="gpu-resume" />} />
+      </Routes>
+    </Router>
   )
 }
 
