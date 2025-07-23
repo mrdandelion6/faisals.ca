@@ -19,8 +19,12 @@ const PDFViewer: React.FC<PDFViewerProps> = ({ pdf_endpoint }) => {
 
   useEffect(() => {
     const fetchPDF = async () => {
+
       const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-      console.log(`endpoint: ${API_BASE_URL}api/pdf/${pdf_endpoint}`)
+      if (import.meta.env.DEV) {
+        console.log(`endpoint: ${API_BASE_URL}api/pdf/${pdf_endpoint}`)
+      }
+
       try {
         if (!API_BASE_URL) {
           throw new Error('API_BASE_URL environment variable is not set');
