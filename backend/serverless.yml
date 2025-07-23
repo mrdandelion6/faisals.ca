@@ -1,26 +1,38 @@
-service: resume-api
+service: faisals-ca
 
 provider:
   name: aws
-  runtime: nodejs24.x
+  runtime: nodejs22.x
   region: us-east-1
+  stage: ${opt:stage, 'dev'}
   iamRoleStatements:
     - Effect: Allow
       Action:
         - s3:GetObject
-      Resource: "arn:aws:s3:::resume-bucket/*"
+      Resource: "arn:aws:s3:::${env:S3_PDF_BUCKET}/*"
+  tags:
+    project: faisals-ca
+    environment: ${self:provider.stage}
+    owner: faisal
+  apiGateway:
+    binaryMediaTypes:
+      - 'application/pdf'
 
 functions:
   api:
     handler: src/handler.handler
     environment:
-      S3_BUCKET: resume-bucket
+      S3_PDF_BUCKET: ${env:S3_PDF_BUCKET}
+      NODE_ENV: ${self:provider.stage}
       ALLOWED_ORIGINS: https://faisals.ca,https://www.faisals.ca
     events:
       - http:
           path: /{proxy+}
           method: ANY
           cors: true
+
+plugins:
+  - serverless-offline
 
 build:
   esbuild:
@@ -29,8 +41,7 @@ build:
     sourcemap: true
     exclude:
       - aws-sdk
-    target: node24
+    target: node22
     define:
       require.resolve: undefined
     platform: node
-    concurrency: 10
