@@ -73,22 +73,22 @@ Your Lambda function might need additional S3 permissions. The deployment may wo
 
 ```json
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetObject",
-        "s3:GetObjectVersion"
-      ],
-      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*"
-    },
-    {
-      "Effect": "Allow",
-      "Action": "s3:ListBucket",
-      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME"
-    }
-  ]
+   "Version": "2012-10-17",
+   "Statement": [
+      {
+         "Effect": "Allow",
+         "Action": [
+            "s3:GetObject",
+            "s3:GetObjectVersion"
+         ],
+         "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*"
+      },
+      {
+         "Effect": "Allow",
+         "Action": "s3:ListBucket",
+         "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME"
+      }
+   ]
 }
 ```
 
@@ -314,10 +314,10 @@ aws s3 cp my-new-document.pdf s3://YOUR_BUCKET_NAME/my-new-document.pdf
 In [`backend/src/routes/pdf.ts`](backend/src/routes/pdf.ts) , add a new route:
 ```javascript
 router.get('/my-new-document', async (_: Request, res: Response) => {
-  if (process.env.NODE_ENV === 'dev') {
-    console.log('=== MY NEW DOCUMENT ENDPOINT HIT ===');
-  }
-  fetch_pdf('my-new-document.pdf', res);  // Must match S3 filename
+   if (process.env.NODE_ENV === 'dev') {
+      console.log('=== MY NEW DOCUMENT ENDPOINT HIT ===');
+   }
+   fetch_pdf('my-new-document.pdf', res);  // Must match S3 filename
 });
 ```
 
@@ -331,9 +331,9 @@ In [`frontend/src/App.tsx`](frontend/src/App.tsx) , add a new route:
 Add the new page to your navigation in [`frontend/src/App.tsx`](frontend/src/App.tsx):
 ```javascript
 const leftButtons: NavBarButtonProps[] = [
-  { children: "Home", href: "/" },
-  { children: "My Document", href: "/my-new-document" },
-  // ... other buttons
+   { children: "Home", href: "/" },
+   { children: "My Document", href: "/my-new-document" },
+   // ... other buttons
 ]
 ```
 
