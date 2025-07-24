@@ -91,13 +91,31 @@ router.get('/gpu-resume', async (_: Request, res: Response) => {
     fetch_pdf('gpu-resume.pdf', res);
 });
 
-router.get('/ta-resume', async (_: Request, res: Response) => {
+router.get('/ta-resume-cs', async (_: Request, res: Response) => {
     if (process.env.NODE_ENV === 'dev') {
-        console.log('=== TA RESUME ENDPOINT HIT ===');
+        console.log('=== CS TA RESUME ENDPOINT HIT ===');
         console.log('Environment:', process.env.NODE_ENV);
         console.log('S3_PDF_BUCKET:', process.env.S3_PDF_BUCKET);
     }
-    fetch_pdf('ta-resume.pdf', res);
+    fetch_pdf('ta-resume-cs.pdf', res);
+});
+
+router.get('/ta-resume-math', async (_: Request, res: Response) => {
+    if (process.env.NODE_ENV === 'dev') {
+        console.log('=== MATH TA RESUME ENDPOINT HIT ===');
+        console.log('Environment:', process.env.NODE_ENV);
+        console.log('S3_PDF_BUCKET:', process.env.S3_PDF_BUCKET);
+    }
+    fetch_pdf('ta-resume-math.pdf', res);
+});
+
+router.get('/ta-resume-phys', async (_: Request, res: Response) => {
+    if (process.env.NODE_ENV === 'dev') {
+        console.log('=== PHYSICS TA RESUME ENDPOINT HIT ===');
+        console.log('Environment:', process.env.NODE_ENV);
+        console.log('S3_PDF_BUCKET:', process.env.S3_PDF_BUCKET);
+    }
+    fetch_pdf('ta-resume-phys.pdf', res);
 });
 
 export default router;
