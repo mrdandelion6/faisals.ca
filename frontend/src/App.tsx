@@ -29,7 +29,9 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/ta-resume" element={<PDFViewer pdf_endpoint="ta-resume" />} />
+        <Route path="/ta-resume-cs" element={<PDFViewer pdf_endpoint="ta-resume-cs" />} />
+        <Route path="/ta-resume-math" element={<PDFViewer pdf_endpoint="ta-resume-math" />} />
+        <Route path="/ta-resume-phys" element={<PDFViewer pdf_endpoint="ta-resume-phys" />} />
         <Route path="/gpu-resume" element={<PDFViewer pdf_endpoint="gpu-resume" />} />
       </Routes>
     </Router>
