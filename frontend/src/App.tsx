@@ -53,6 +53,7 @@ function App() {
         <Route path="/ta-resume-cs" element={<PDFViewer pdf_endpoint="ta-resume-cs" />} />
         <Route path="/ta-resume-math" element={<PDFViewer pdf_endpoint="ta-resume-math" />} />
         <Route path="/ta-resume-phys" element={<PDFViewer pdf_endpoint="ta-resume-phys" />} />
+        <Route path="/rop-resume-phys" element={<PDFViewer pdf_endpoint="rop-resume-phys" />} />
         <Route path="/gpu-resume" element={<PDFViewer pdf_endpoint="gpu-resume" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -118,4 +118,14 @@ router.get('/ta-resume-phys', async (_: Request, res: Response) => {
     fetch_pdf('ta-resume-phys.pdf', res);
 });
 
+router.get('/rop-resume-phys', async (_: Request, res: Response) => {
+    if (process.env.NODE_ENV === 'dev') {
+        console.log('=== PHYSICS ROP RESUME ENDPOINT HIT ===');
+        console.log('Environment:', process.env.NODE_ENV);
+        console.log('S3_PDF_BUCKET:', process.env.S3_PDF_BUCKET);
+    }
+    fetch_pdf('rop-resume-phys.pdf', res);
+});
+
+
 export default router;
