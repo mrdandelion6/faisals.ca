@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:wght@100..900&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --font-title: 'Saira', sans-serif;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -34,6 +38,10 @@ body {
   }
 
   .section-heading {
-    @apply text-2xl lg:text-3xl font-semibold text-gray-900 mb-6;
+    @apply text-2xl lg:text-3xl font-semibold text-gray-900 mb-6 font-title;
   }
+}
+
+.font-title {
+  font-weight: 600;
 }
